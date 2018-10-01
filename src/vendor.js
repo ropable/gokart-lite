@@ -1,4 +1,5 @@
 // produce some terrifying CSS at runtime using browserify-css
+import './browser.js'
 import 'leaflet/dist/leaflet.css'
 
 // OpenLayers 3 map widget, including our extensions
