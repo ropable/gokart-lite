@@ -43,7 +43,7 @@ var loadGokartApp = function(gokartService,appOptions,gokartProfile,successCallb
         return function (index) {
             var postLoad = function(){
                 if (index < cssFiles.length - 1) {
-                    importCssFile(index + 1,)
+                    importCssFile(index + 1)
                 } else {
                     importScript(0)
                 }
@@ -76,7 +76,7 @@ var loadGokartApp = function(gokartService,appOptions,gokartProfile,successCallb
         return function (index) {
             var postLoad = function(){
                 if (index < scripts.length - 1) {
-                    importScript(index + 1,)
+                    importScript(index + 1)
                 } else {
                     //set map element's size
                     $(mapElement).width($(containerElement).width())
