@@ -146,10 +146,10 @@ var todaysburnsEnv = {
         },
         featureCountControl:{
             options:{
-                html:`<div style='color:#2a044e;font-weight:bold;font-size:18px'>Total Today's Burns: <span id='total_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:18px'>Burns planned for lighting today: <span id='planned_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:18px'>Active burns from previous lighting - Planned ignitions today: <span id='active_and_planned_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:18px'> Active burns from previous lighting - NO planned ignitions today: <span id='active_and_unplanned_count'></span> </div>`,
+                html:`<div style='color:#2a044e;font-weight:bold;font-size:15px'>Total Today's Burns: <span id='total_count'></span> </div>
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'>Burns planned for lighting today: <span id='planned_count'></span> </div>
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'>Active burns from previous lighting - Planned ignitions today: <span id='active_and_planned_count'></span> </div>
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'> Active burns from previous lighting - NO planned ignitions today: <span id='active_and_unplanned_count'></span> </div>`,
                 featurecount : [
                     // [key(htmlid) , cqlcondition,]
                     ["total_count",null],
@@ -213,10 +213,10 @@ var todaysburnsEnv = {
         },
         featureCountControl:{
             options:{
-                html:`<div style='color:#2a044e;font-weight:bold;font-size:18px'>Total Yesterday's Burns: <span id='total_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:18px'>Burns planned for lighting yesterday: <span id='planned_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:18px'>Active burns from previous lighting - Planned ignitions yesterday: <span id='active_and_planned_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:18px'> Active burns from previous lighting - NO planned ignitions yesterday: <span id='active_and_unplanned_count'></span> </div>`,
+                html:`<div style='color:#2a044e;font-weight:bold;font-size:15px'>Total Yesterday's Burns: <span id='total_count'></span> </div>
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'>Burns planned for lighting yesterday: <span id='planned_count'></span> </div>
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'>Active burns from previous lighting - Planned ignitions yesterday: <span id='active_and_planned_count'></span> </div>
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'> Active burns from previous lighting - NO planned ignitions yesterday: <span id='active_and_unplanned_count'></span> </div>`,
                 featurecount : [
                     // [key(htmlid) , cqlcondition,]
                     ["total_count",null],
