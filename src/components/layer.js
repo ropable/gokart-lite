@@ -25,7 +25,7 @@ var Layer = function(map,layer) {
  
     this._mapLayer = null
     this.map = map
-    this._featureCount = null
+    this._featureCount = {}
     this.addTime = null
     this.refreshTime = null
     this._baseurl = null
@@ -313,8 +313,16 @@ Layer.prototype.getFeatures = function(params,successCallback,failedCallback,ver
         }
     })
 }
-
-Layer.prototype.getFeatureCount = function(refresh,successCallback,failedCallback) {
+/*
+ * If cqlfilter is null,get total feature count
+ * If cqlfilter is not null,get the count of the features which meet the condition.
+ * parameters:
+ * refresh : refresh flag
+ * calcondition: required, can be null, cqlfilter string or [name,cqlfilter string]
+ * successCallback: optional
+ * failedCallback: optional
+ * */
+Layer.prototype.getFeatureCount = function(refresh,cqlfilter,successCallback,failedCallback) {
     if (!successCallback) {
         successCallback = function(featurecount) {
             alert(featurecount)
@@ -325,17 +333,29 @@ Layer.prototype.getFeatureCount = function(refresh,successCallback,failedCallbac
             alert(msg)
         }
     }
-    if (refresh || this._featureCount === null) {
+    var key = "_total_" ;
+    if (cqlfilter) {
+        if (Array.isArray(cqlfilter)) {
+            if (cqlfilter[1]) key = cqlfilter[0] 
+            cqlfilter = cqlfilter[1]?("&cql_filter=" + cqlfilter[1]):""
+        } else {
+            key = cqlfilter
+            cqlfilter = "&cql_filter=" + cqlfilter
+        }
+    } else {
+        cqlfilter = ""
+    }
+    if (refresh || !this._featureCount[key]) {
         var vm = this
-        var url = this.wfsService() + "?service=wfs&version=1.1.0&request=GetFeature&typeNames=" + this.getId() + "&resultType=hits"
+        var url = this.wfsService() + "?service=wfs&version=1.1.0&request=GetFeature&typeNames=" + this.getId() + "&resultType=hits" + cqlfilter
         $.ajax({
             url:url,
             dataType:"xml",
             success: function (response, stat, xhr) {
                 try {
-                    var previousFeaturecount = (vm._featureCount === undefined)?null:vm._featureCount
-                    vm._featureCount = parseInt(response.firstChild.getAttribute("numberOfFeatures"))
-                    successCallback(vm._featureCount,previousFeaturecount)
+                    var previousFeaturecount = (vm._featureCount[key] === undefined)?null:vm._featureCount[key]
+                    vm._featureCount[key] = parseInt(response.firstChild.getAttribute("numberOfFeatures"))
+                    successCallback(vm._featureCount[key],previousFeaturecount)
                 } catch(msg) {
                     failedCallback(msg)
                 }
@@ -348,7 +368,7 @@ Layer.prototype.getFeatureCount = function(refresh,successCallback,failedCallbac
             }
         })
     } else {
-        successCallback(this._featureCount)
+        successCallback(this._featureCount[key])
     }
 }
 
