@@ -78,9 +78,12 @@ L.Control.FeatureCount = L.Control.extend({
                 return
             } else {
                 this._div.innerHTML = this._layer._featureCountControl.options["html"]
+                if (this._map) {
+                    //already add to the map
+                    this.showFeatureCount()
+                }
             }
-        }
-        if (this._map) {
+        } else if (this._map) {
             //already add to the map
             this.showFeatureCount()
         }
