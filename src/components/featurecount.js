@@ -5,26 +5,71 @@ L.Control.FeatureCount = L.Control.extend({
     options: {
         position:"bottomleft"
     },
+    setFeatureCountOption:function(featurecount_option) {
+        if (featurecount_option) {
+            if (Array.isArray(featurecount_option)) {
+                if (featurecount_option.length === 0) {
+                    //don't configure any feature count, use the default one
+                    this._featureCountOption = [["featurecount",null,"#featurecount"]]
+                } else if (Array.isArray(featurecount_option[0])) {
+                    //define multiple feature count
+                    $.each(featurecount_option,function(index,option){
+                        if (option.length === 0){
+                            option.push("featurecount")
+                            option.push(null)
+                            option.push("#featurecount")
+                        } else if (option.length === 1){
+                            //only declare the key,
+                            option.push(null)
+                            option.push("#" + option[0])
+                        } else if (option.length === 2){
+                            //only declare the key and cqlcondition
+                            option.push("#" + option[0])
+                        } else {
+                            //declare the key ,cqlcondition and html element selection
+                        }
+                    })
+                    this._featureCountOption = featurecount_option
+                } else {
+                    //define one feature count
+                    if (featurecount_option.length === 1){
+                        //only declare the key,
+                        featurecount_option.push(null)
+                        featurecount_option.push("#" + featurecount_option[0])
+                    } else if (featurecount_option.length === 2){
+                        //only declare the key and cqlcondition
+                        featurecount_option.push("#" + featurecount_option[0])
+                    } else {
+                        //declare the key ,cqlcondition and html element selection
+                    }
+                    this._featureCountOption = [featurecount_option]
+                }
+
+            } else {
+                this._featureCountOption = [[featurecount_option,null,"#" + featurecount_option]]
+            }
+        } else {
+            this._featureCountOption = [["featurecount",null,"#featurecount"]]
+        }
+    },
     setLayer:function(layer) {
         if (!layer) {
             this._layer = null
             this._div.innerHTML = ""
-            this._featureCountId = "#featurecount"
+            this.setFeatureCountOption()
             return
         }
         if (this._layer === layer) {
             //same layer
             return
         }
-        this._featureCount = null
         this._layer = layer
         if (this._layer._featureCountControl && this._layer._featureCountControl.options && this._layer._featureCountControl.options.html) {
-            this._featureCountId = null
             var vm = this
+            this.setFeatureCountOption(this._layer._featureCountControl.options["featurecount"])
             if (typeof this._layer._featureCountControl.options["html"] === "function") {
                 this._layer._featureCountControl.options["html"].call(this._layer,function(html){
                     vm._div.innerHTML = html
-                    vm._featureCountId = "#" + (vm._layer._featureCountControl.options["featurecount_id"] || "featurecount")
                     if (vm._map) {
                         //already add to the map
                         vm.showFeatureCount()
@@ -33,25 +78,34 @@ L.Control.FeatureCount = L.Control.extend({
                 return
             } else {
                 this._div.innerHTML = this._layer._featureCountControl.options["html"]
-                this._featureCountId = "#" + (this._layer._featureCountControl.options["featurecount_id"] || "featurecount")
+                if (this._map) {
+                    //already add to the map
+                    this.showFeatureCount()
+                }
             }
-        }
-        if (this._map) {
+        } else if (this._map) {
             //already add to the map
             this.showFeatureCount()
         }
 
     },
     showFeatureCount:function(refresh) {
+        if (!this._featureCountOption) {
+            return
+        }
         var vm = this
         if (this._layer) {
-            this._layer.getFeatureCount(refresh,function(featurecount){
-                $(vm._div).find(vm._featureCountId).html(featurecount)
-            },function(msg){
-                $(vm._div).find(vm._featureCountId).html(msg)
+            $.each(vm._featureCountOption,function(index,option) {
+                vm._layer.getFeatureCount(refresh,option,function(featurecount){
+                    $(vm._div).find(option[2]).html(featurecount)
+                },function(msg){
+                    $(vm._div).find(option[2]).html(msg)
+                })
             })
         } else {
-            $(this._div).find(vm._featureCountId).html("")
+            $.each(vm._featureCountOption,function(index,option) {
+                $(vm._div).find(option[2]).html("")
+            })
         }
     },
     onAdd:function(map) {
@@ -66,22 +120,21 @@ L.Control.FeatureCount.addInitHook(function() {
     this._layer = null
     this._div = L.DomUtil.create('div');
     this._div.id = "featurecount_control";
-    this._featureCountId = null;
+    this._featureCountOption = null;
     if (this.options["html"]) {
+        this.setFeatureCountOption(this.options["featurecount"])
         if (typeof this.options["html"] === "function") {
             var vm = this
             this.options["html"].call(this,function(html) {
                 vm._div.innerHTML = html
-                vm._featureCountId = "#" + (vm.options["featurecount_id"] || "featurecount")
             })
             return
         } else {
             this._div.innerHTML = this.options["html"]
-            this._featureCountId = "#" + (this.options["featurecount_id"] || "featurecount")
         }
     } else {
         this._div.innerHTML = ""
-        this._featureCountId = "#featurecount"
+        this.setFeatureCountOption()
     }
 
 })

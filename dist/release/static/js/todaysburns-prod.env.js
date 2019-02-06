@@ -101,7 +101,7 @@ var todaysburnsEnv = {
         //metadata:"<div style='color:#2a044e;font-weight:bold;font-size:16px'>Today's Burns</div>",
         show:function(callback) {//add,refresh,wait,update,null
             var vm = this
-            this.getFeatureCount(true,function(featureCount,previousFeatureCount) {
+            this.getFeatureCount(true,null,function(featureCount,previousFeatureCount) {
                 if (featureCount === 0) {
                     callback(null)
                 } else if (!vm.isAdded()) {
@@ -146,8 +146,17 @@ var todaysburnsEnv = {
         },
         featureCountControl:{
             options:{
-                html:"<div style='color:#2a044e;font-weight:bold;font-size:18px'>Total Today's Burns: <span id='todaysburns_count'></span> </div>",
-                featurecount_id : "todaysburns_count"
+                html:`<div style='color:#2a044e;font-weight:bold;font-size:15px'>Total Today's Burns: <span id='total_count'></span> </div>
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'>Burns planned for lighting today: <span id='planned_count'></span> </div>
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'>Active burns from previous lighting - Planned ignitions today: <span id='active_and_planned_count'></span> </div>
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'> Active burns from previous lighting - NO planned ignitions today: <span id='active_and_unplanned_count'></span> </div>`,
+                featurecount : [
+                    // [key(htmlid) , cqlcondition,]
+                    ["total_count",null],
+                    ["active_and_planned_count","burn_stat='Active - Planned Ignitions Today'"],
+                    ["active_and_unplanned_count","burn_stat='Active - No Planned Ignitions Today'"],
+                    ["planned_count","burn_stat='Planned - No Prior Ignitions'"],
+                ],
             }
         }
     },{
@@ -204,8 +213,17 @@ var todaysburnsEnv = {
         },
         featureCountControl:{
             options:{
-                html:"<div style='color:#2a044e;font-weight:bold;font-size:18px'>Total Yesterday's Burns: <span id='yesterdaysburns_count'></span> </div>",
-                featurecount_id : "yesterdaysburns_count"
+                html:`<div style='color:#2a044e;font-weight:bold;font-size:15px'>Total Yesterday's Burns: <span id='total_count'></span> </div>
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'>Burns planned for lighting yesterday: <span id='planned_count'></span> </div>
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'>Active burns from previous lighting - Planned ignitions yesterday: <span id='active_and_planned_count'></span> </div>
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'> Active burns from previous lighting - NO planned ignitions yesterday: <span id='active_and_unplanned_count'></span> </div>`,
+                featurecount : [
+                    // [key(htmlid) , cqlcondition,]
+                    ["total_count",null],
+                    ["active_and_planned_count","burn_stat='Active - Planned Ignitions Today'"],
+                    ["active_and_unplanned_count","burn_stat='Active - No Planned Ignitions Today'"],
+                    ["planned_count","burn_stat='Planned - No Prior Ignitions'"],
+                ],
             }
         }
     }],
