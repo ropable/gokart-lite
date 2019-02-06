@@ -99,8 +99,10 @@ var ibpEnv = {
     },
     featureCountControl:{
         options:{
-            html:"<div style='color:#2a044e;font-weight:bold;font-size:18px'>Total Indicative Burning Program : <span id='ibp_count'></span> </div>",
-            featurecount : "ibp_count"
+            html:"<div style='color:#2a044e;font-weight:bold;font-size:18px'>Total Indicative Burning Program : <span id='total_count'></span> </div>",
+            featurecount :[ 
+                ["total_count",null]
+            ]
         }
     }
     
