@@ -168,7 +168,7 @@ var todaysburnsEnv = {
         options:{
             style:"public:yesterdays_burns.ShowPinpoint"
         },
-        metadata:"<div style='color:#2a044e;font-weight:bold;font-size:16px'>Today's burns not yet approved or no burning today</div>",
+        //metadata:"<div style='color:#2a044e;font-weight:bold;font-size:16px'>Today's burns not yet approved or no burning today</div>",
         show:function(callback) {//add,refresh,wait,update,null
             if (this.isAdded()) {
                 if (this.refreshTime.getDate() === new Date().getDate()) {
@@ -216,7 +216,8 @@ var todaysburnsEnv = {
                 html:`<div style='color:#2a044e;font-weight:bold;font-size:15px'>Total Yesterday's Burns: <span id='total_count'></span> </div>
                       <div style='color:#2a044e;font-weight:bold;font-size:15px'>Burns planned for lighting yesterday: <span id='planned_count'></span> </div>
                       <div style='color:#2a044e;font-weight:bold;font-size:15px'>Active burns from previous lighting - Planned ignitions yesterday: <span id='active_and_planned_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:15px'> Active burns from previous lighting - NO planned ignitions yesterday: <span id='active_and_unplanned_count'></span> </div>`,
+                      <div style='color:#2a044e;font-weight:bold;font-size:15px'> Active burns from previous lighting - NO planned ignitions yesterday: <span id='active_and_unplanned_count'></span> </div>
+                      <div style='color:red;font-weight:bold;font-size:15px'>Today's burns not yet approved or no burning today</div>`,
                 featurecount : [
                     // [key(htmlid) , cqlcondition,]
                     ["total_count",null],
