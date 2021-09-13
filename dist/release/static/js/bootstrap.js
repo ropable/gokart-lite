@@ -87,7 +87,7 @@ var loadGokartApp = function(gokartService,appOptions,gokartProfile,successCallb
                     } else {
                         name = "gokart_" + appOptions["app"]
                     }
-                    eval("window." + name + "= new Gokart(\"" + appOptions["app"] + "\",mapElementId,true)")
+                    eval("window." + name + "= new Gokart(\"" + appOptions["app"] + "\",mapElementId,true,\"" + gokartService  + "\")")
                     if (successCallback) {
                         successCallback()
                     }
