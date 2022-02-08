@@ -155,7 +155,7 @@ Layer.loadLayers = function(map) {
         }
     }
 
-    if (map.isAuthenticated()) {
+    if (false && map.isAuthenticated()) {
         var req = new window.XMLHttpRequest()
         req.withCredentials = true
         req.onload = function () {
@@ -176,7 +176,7 @@ Layer.loadLayers = function(map) {
         req.onerror = function (ev) {
             var msg ='Couldn\'t load layer catalogue!' +  (req.statusText? (" (" + req.statusText + ")") : '')
             console.error(msg)
-            alert(msg)
+            processLayers([])
         }
         req.open('GET', map.gokart.env["cswService"] + "?format=json&application__name=" + map.gokart.env["cswApp"])
         req.send()

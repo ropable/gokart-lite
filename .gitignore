@@ -8,6 +8,7 @@ src/apps/*-profile.js
 uwsgi.ini
 uwsgi_uat.ini
 uwsgi_dev.ini
+build_image.sh
 
 *.log
 *.sw*
