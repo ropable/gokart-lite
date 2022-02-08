@@ -67,7 +67,7 @@ var ibpEnv = {
         type:"WMTS",
         layerType:"toplayer",
         geometryType:"polygon",
-        geometryColumn:" wkb_geometry",
+        geometryColumn:"shape",
         options:{
             style:"public:latest_indicative_burn_program2.ShowPinpoint"
         },

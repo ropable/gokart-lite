@@ -13,6 +13,8 @@ var todaysburnsEnv = {
     wfsService:"https://kmi.dpaw.wa.gov.au/geoserver/wfs",
 
     publicWmtsService:"https://kmi.dpaw.wa.gov.au/geoserver/public/gwc/service/wmts",
+    publicWmsService:"https://kmi.dpaw.wa.gov.au/geoserver/public/wms",
+    publicWfsService:"https://kmi.dpaw.wa.gov.au/geoserver/public/wfs",
 
     app:"todaysburns",
     cswApp:"todaysburns",

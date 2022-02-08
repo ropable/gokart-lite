@@ -13,6 +13,8 @@ var ibpEnv = {
     wfsService:"https://kmi.dpaw.wa.gov.au/geoserver/wfs",
 
     publicWmtsService:"https://kmi.dpaw.wa.gov.au/geoserver/public/gwc/service/wmts",
+    publicWmsService:"https://kmi.dpaw.wa.gov.au/geoserver/public/wms",
+    publicWfsService:"https://kmi.dpaw.wa.gov.au/geoserver/public/wfs",
 
     app:"ibp",
     cswApp:"ibp",
@@ -65,7 +67,7 @@ var ibpEnv = {
         type:"WMTS",
         layerType:"toplayer",
         geometryType:"polygon",
-        geometryColumn:" wkb_geometry",
+        geometryColumn:"shape",
         options:{
             style:"public:latest_indicative_burn_program2.ShowPinpoint"
         },
