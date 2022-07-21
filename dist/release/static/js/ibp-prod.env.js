@@ -1,24 +1,15 @@
 //indicative burning program
 var ibpEnv = {
-    title:"Indicative Burning Program",
-
-    whoamiUrl:"/sso/profile",
-
-    gokartService:"https://ssslite.dpaw.wa.gov.au",
-
-    cswService:"https://csw.dpaw.wa.gov.au/catalogue/api/records/",
-
-    wmtsService:"https://kmi.dpaw.wa.gov.au/geoserver/gwc/service/wmts",
-    wmsService:"https://kmi.dpaw.wa.gov.au/geoserver/wms",
-    wfsService:"https://kmi.dpaw.wa.gov.au/geoserver/wfs",
-
-    publicWmtsService:"https://kmi.dpaw.wa.gov.au/geoserver/public/gwc/service/wmts",
-    publicWmsService:"https://kmi.dpaw.wa.gov.au/geoserver/public/wms",
-    publicWfsService:"https://kmi.dpaw.wa.gov.au/geoserver/public/wfs",
-
-    app:"ibp",
-    cswApp:"ibp",
-
+    title: "Indicative Burning Program",
+    whoamiUrl: "/sso/profile",
+    gokartService: "https://ssslite-dev.dbca.wa.gov.au",
+    cswService: "https://csw.dbca.wa.gov.au/catalogue/api/records/",
+    wmtsService: "https://kmi.dbca.wa.gov.au/geoserver/gwc/service/wmts",
+    wmsService: "https://kmi.dbca.wa.gov.au/geoserver/wms",
+    wfsService: "https://kmi.dbca.wa.gov.au/geoserver/wfs",
+    publicWmtsService: "https://kmi.dbca.wa.gov.au/geoserver/public/gwc/service/wmts",
+    app: "ibp",
+    cswApp: "ibp",
     map: {
         crs:"EPSG:4326",
         center:[-31.95296,115.86067 ],
@@ -26,25 +17,25 @@ var ibpEnv = {
         maxZoom:17,
         maxBounds:[[-36,112.6],[-13,129.1]],
         bounds:[[-36,112.6],[-13,129.1]],
-    
+
         zoomControl:true,
         attributionControl:false,
         scaleControl:false,
         fullpageControl:false,
         featureCountControl:true,
-    
+
         zoomSnap:1,
         zoomDelta:1,
         traceResize:true,
         boxZoom:true,
         doubleClickZoom:true,
         dragging:true,
-    
+
         zoomAnimation:true,
         zoomAnimationThreshold:4,
         fadeAnimation:true,
         markerZoomAnimation:true,
-    
+
         keyboard:true,
         keyboardPanDelta:80
     },
@@ -77,7 +68,7 @@ var ibpEnv = {
             tryMinZoom:6,
             tryBuffers:10,
             //used in the first time to fetch the features, default is 1 for polygon ,10 for others
-            buffer:1, 
+            buffer:1,
             style:{
                 stroke:true,
                 color:"#ff0000",
@@ -99,14 +90,12 @@ var ibpEnv = {
         options:{
         }
     },
-    featureCountControl:{
-        options:{
-            html:"<div style='color:#2a044e;font-weight:bold;font-size:18px'>Total Indicative Burning Program : <span id='total_count'></span> </div>",
-            featurecount :[ 
-                ["total_count",null]
-            ]
-        }
+    featureCountControl: {
+      options: {
+          html:"<div style='color:#2a044e;font-weight:bold;font-size:18px'>Total Burn Options : <span id='total_count'></span> </div>",
+          featurecount :[
+              ["total_count",null]
+          ]
+      }
     }
-    
 };
-
