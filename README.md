@@ -33,15 +33,15 @@ npm test
 1. Naming the map app; for example, the app is 'todaysburns'
 2. Listing possible running env types; for example, 'prod', 'uat' and 'dev'
 3. Adding the js settings files in folder ./dist/release/static/js,
-   A. prod: todaysburns-prod.env.js 
-   B. uat: todaysburns-uat.env.js 
-   C. dev: todaysburns-dev.env.js 
+   A. prod: todaysburns-prod.env.js
+   B. uat: todaysburns-uat.env.js
+   C. dev: todaysburns-dev.env.js
 ```
 
 ## Map app settings
 
 ``` bash
-# The following is the exmaple settings for 'Indicative Burning Program'
+# The following is the example settings for 'Indicative Burning Program'
 var ibpEnv = {
     title:"Indicative Burning Program",
 
