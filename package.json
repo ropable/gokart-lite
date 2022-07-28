@@ -3,11 +3,11 @@
   "description": "Leaflet project",
   "author": "Rocky Chen <rocky.chen@fastmail.fm>",
   "license": "Apache-2.0",
-  "repository": "https://github.com/parksandwildlife",
+  "repository": "https://github.com/dbca-wa/gokart-lite",
   "config": {
     "app": "sss",
     "description": "Lite Spatial Support System v3",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "scripts": {
     "serve": "uwsgi -i uwsgi.ini",
