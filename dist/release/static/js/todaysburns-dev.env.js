@@ -144,21 +144,21 @@ var todaysburnsEnv = {
                 {name:"burn_planned_distance_today",title:"Burn Planned Distance Today (km)",precision:2}
             ]
         },
-        featureCountControl:{
-            options:{
-                html:`<div style='color:#2a044e;font-weight:bold;font-size:15px'>Total Today's Burns: <span id='total_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:15px'>Burns planned for lighting today: <span id='planned_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:15px'>Active burns from previous lighting - Planned ignitions today: <span id='active_and_planned_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:15px'> Active burns from previous lighting - NO planned ignitions today: <span id='active_and_unplanned_count'></span> </div>`,
-                featurecount : [
-                    // [key(htmlid) , cqlcondition,]
-                    ["total_count",null],
-                    ["active_and_planned_count","burn_stat='Active - Planned Ignitions Today'"],
-                    ["active_and_unplanned_count","burn_stat='Active - No Planned Ignitions Today'"],
-                    ["planned_count","burn_stat='Planned - No Prior Ignitions'"],
-                ],
-            }
-        }
+        //featureCountControl:{
+        //    options:{
+        //        html:`<div style='color:#2a044e;font-weight:bold;font-size:15px'>Total Today's Burns: <span id='total_count'></span> </div>
+        //              <div style='color:#2a044e;font-weight:bold;font-size:15px'>Burns planned for lighting today: <span id='planned_count'></span> </div>
+        //              <div style='color:#2a044e;font-weight:bold;font-size:15px'>Active burns from previous lighting - Planned ignitions today: <span id='active_and_planned_count'></span> </div>
+        //              <div style='color:#2a044e;font-weight:bold;font-size:15px'> Active burns from previous lighting - NO planned ignitions today: <span id='active_and_unplanned_count'></span> </div>`,
+        //        featurecount : [
+        //            // [key(htmlid) , cqlcondition,]
+        //            ["total_count",null],
+        //            ["active_and_planned_count","burn_stat='Active - Planned Ignitions Today'"],
+        //            ["active_and_unplanned_count","burn_stat='Active - No Planned Ignitions Today'"],
+        //            ["planned_count","burn_stat='Planned - No Prior Ignitions'"],
+        //        ],
+        //    }
+        //}
     },{
         id:"public:yesterdays_burns",
         type:"WMTS",
@@ -211,22 +211,22 @@ var todaysburnsEnv = {
                 {name:"burn_planned_distance_today",title:"Burn Planned Distance Today (km)",precision:2}
             ]
         },
-        featureCountControl:{
-            options:{
-                html:`<div style='color:#2a044e;font-weight:bold;font-size:15px'>Total Yesterday's Burns: <span id='total_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:15px'>Burns planned for lighting yesterday: <span id='planned_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:15px'>Active burns from previous lighting - Planned ignitions yesterday: <span id='active_and_planned_count'></span> </div>
-                      <div style='color:#2a044e;font-weight:bold;font-size:15px'> Active burns from previous lighting - NO planned ignitions yesterday: <span id='active_and_unplanned_count'></span> </div>
-                      <div style='color:red;font-weight:bold;font-size:15px'>Today's burns not yet approved or no burning today</div>`,
-                featurecount : [
-                    // [key(htmlid) , cqlcondition,]
-                    ["total_count",null],
-                    ["active_and_planned_count","burn_stat='Active - Planned Ignitions Today'"],
-                    ["active_and_unplanned_count","burn_stat='Active - No Planned Ignitions Today'"],
-                    ["planned_count","burn_stat='Planned - No Prior Ignitions'"],
-                ],
-            }
-        }
+        //featureCountControl:{
+        //    options:{
+        //        html:`<div style='color:#2a044e;font-weight:bold;font-size:15px'>Total Yesterday's Burns: <span id='total_count'></span> </div>
+        //              <div style='color:#2a044e;font-weight:bold;font-size:15px'>Burns planned for lighting yesterday: <span id='planned_count'></span> </div>
+        //              <div style='color:#2a044e;font-weight:bold;font-size:15px'>Active burns from previous lighting - Planned ignitions yesterday: <span id='active_and_planned_count'></span> </div>
+        //              <div style='color:#2a044e;font-weight:bold;font-size:15px'> Active burns from previous lighting - NO planned ignitions yesterday: <span id='active_and_unplanned_count'></span> </div>
+        //              <div style='color:red;font-weight:bold;font-size:15px'>Today's burns not yet approved or no burning today</div>`,
+        //        featurecount : [
+        //            // [key(htmlid) , cqlcondition,]
+        //            ["total_count",null],
+        //            ["active_and_planned_count","burn_stat='Active - Planned Ignitions Today'"],
+        //            ["active_and_unplanned_count","burn_stat='Active - No Planned Ignitions Today'"],
+        //            ["planned_count","burn_stat='Planned - No Prior Ignitions'"],
+        //        ],
+        //    }
+        //}
     }],
     //configuration for feature info popup
     featureInfoPopup:{
