@@ -22,7 +22,7 @@ var ibpEnv = {
         attributionControl:false,
         scaleControl:false,
         fullpageControl:false,
-        featureCountControl:true,
+        featureCountControl:false,
 
         zoomSnap:1,
         zoomDelta:1,
