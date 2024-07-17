@@ -18,7 +18,7 @@ spec:
         resources:
           requests:
             memory: "64Mi"
-            cpu: "10m"
+            cpu: "5m"
           limits:
             memory: "512Mi"
             cpu: "500m"
@@ -101,8 +101,8 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: ssslite-hpa-uat
 spec:
-  minReplicas: 1
-  maxReplicas: 3
+  minReplicas: 2
+  maxReplicas: 5
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
@@ -112,7 +112,7 @@ spec:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 250
+          averageUtilization: 500
       type: Resource
 ---
 apiVersion: policy/v1
