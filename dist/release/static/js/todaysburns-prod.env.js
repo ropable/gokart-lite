@@ -98,7 +98,7 @@ var todaysburnsEnv = {
         geometryType:"polygon",
         geometryColumn:" wkb_geometry",
         options:{
-            style:"public:todays_burns.ShowPinpoint"
+            style:"public:todays_burns_ShowPinpoint"
         },
         //metadata:"<div style='color:#2a044e;font-weight:bold;font-size:16px'>Today's Burns</div>",
         show:function(callback) {//add,refresh,wait,update,null
@@ -168,7 +168,7 @@ var todaysburnsEnv = {
         geometryType:"polygon",
         geometryColumn:" wkb_geometry",
         options:{
-            style:"public:yesterdays_burns.ShowPinpoint"
+            style:"public:yesterdays_burns_ShowPinpoint"
         },
         //metadata:"<div style='color:#2a044e;font-weight:bold;font-size:16px'>Today's burns not yet approved or no burning today</div>",
         show:function(callback) {//add,refresh,wait,update,null

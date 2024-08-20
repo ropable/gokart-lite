@@ -60,7 +60,7 @@ var ibpEnv = {
         geometryType:"polygon",
         geometryColumn:"shape",
         options:{
-            style:"public:latest_indicative_burn_program2.ShowPinpoint"
+            style:"public:latest_indicative_burn_program2_ShowPinpoint"
         },
         featureInfo:{
             highlight:true,
