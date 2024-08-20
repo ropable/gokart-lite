@@ -1,4 +1,4 @@
-//indicative burning program
+//the config setings for indicative burning program
 var ibpEnv = {
     title:"Indicative Burning Program",
 

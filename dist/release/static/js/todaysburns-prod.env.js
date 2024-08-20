@@ -1,4 +1,4 @@
-//today's burns
+//the config settings for today's burns
 var todaysburnsEnv = {
     title:"Today's Burns",
 
