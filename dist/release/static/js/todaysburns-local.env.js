@@ -88,6 +88,7 @@ var todaysburnsEnv = {
         serviceType:"WMTS",
         layerType:"baselayer",
         options:{
+            format:'image/jpeg'
         }
     },{
         id:"public:todays_burns",

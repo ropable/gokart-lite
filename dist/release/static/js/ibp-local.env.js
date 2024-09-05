@@ -61,6 +61,7 @@ var ibpEnv = {
         serviceType:"WMTS",
         layerType:"baselayer",
         options:{
+            format:'image/jpeg'
         }
     },{
         id:"public:latest_indicative_burn_program2",
