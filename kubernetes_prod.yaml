@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: ssslite-prod
-        image: dbcawa/gokart-lite:2023.01.10.03.5404
+        image: ghcr.io/dbca-wa/gokart-lite:2024.08.20.11.03
         imagePullPolicy: IfNotPresent
         resources:
           requests:

@@ -1,4 +1,4 @@
-//indicative burning program
+//the config setings for indicative burning program
 var ibpEnv = {
     title:"Indicative Burning Program",
 
@@ -61,6 +61,7 @@ var ibpEnv = {
         serviceType:"WMTS",
         layerType:"baselayer",
         options:{
+            format:'image/jpeg'
         }
     },{
         id:"public:latest_indicative_burn_program2",
@@ -69,7 +70,7 @@ var ibpEnv = {
         geometryType:"polygon",
         geometryColumn:"shape",
         options:{
-            style:"public:latest_indicative_burn_program2.ShowPinpoint"
+            style:"public:latest_indicative_burn_program2_ShowPinpoint"
         },
         featureInfo:{
             highlight:true,
